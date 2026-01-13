@@ -36,7 +36,7 @@ const FeedbackButton: React.FC<{
   );
 };
 
-const BasketballInterface: React.FC<InterfaceProps> = ({ game, score, onAddEvent, onBack, onShowSummary }) => {
+const BasketballInterface: React.FC<InterfaceProps> = ({ score, onAddEvent, onBack, onShowSummary }) => {
   const handleAdd = (type: string, value: number = 0) => {
     onAddEvent({ type, value });
   };
