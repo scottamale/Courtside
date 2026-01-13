@@ -1,11 +1,10 @@
-
 import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
-import { GameMetadata, GameState, StatEvent, Sport } from './types.ts';
+import { GameMetadata, GameState, StatEvent } from './types.ts';
 import SetupForm from './components/SetupForm.tsx';
 import BasketballInterface from './components/BasketballInterface.tsx';
 import VolleyballInterface from './components/VolleyballInterface.tsx';
 import SummaryModal from './components/SummaryModal.tsx';
-import { BoltIcon, ArrowPathIcon } from '@heroicons/react/24/solid';
+import { ArrowPathIcon } from '@heroicons/react/24/solid';
 
 const App: React.FC = () => {
   const [view, setView] = useState<'setup' | 'game'>('setup');
@@ -19,8 +18,8 @@ const App: React.FC = () => {
 
   // Persistence
   useEffect(() => {
-    const saved = localStorage.getItem('triple_threat_last_game');
-    const savedTimer = localStorage.getItem('triple_threat_timer');
+    const saved = localStorage.getItem('courtside_last_game');
+    const savedTimer = localStorage.getItem('courtside_timer');
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
@@ -35,8 +34,8 @@ const App: React.FC = () => {
 
   useEffect(() => {
     if (game) {
-      localStorage.setItem('triple_threat_last_game', JSON.stringify(game));
-      localStorage.setItem('triple_threat_timer', seconds.toString());
+      localStorage.setItem('courtside_last_game', JSON.stringify(game));
+      localStorage.setItem('courtside_timer', seconds.toString());
     }
   }, [game, seconds]);
 
@@ -133,8 +132,8 @@ const App: React.FC = () => {
 
   const handleEndGame = () => {
     if (window.confirm("End this session? Data will be cleared.")) {
-      localStorage.removeItem('triple_threat_last_game');
-      localStorage.removeItem('triple_threat_timer');
+      localStorage.removeItem('courtside_last_game');
+      localStorage.removeItem('courtside_timer');
       setGame(null);
       setView('setup');
       setSeconds(0);

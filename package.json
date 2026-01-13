@@ -1,9 +1,9 @@
-
 {
   "name": "courtside",
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "homepage": "https://scottamale.github.io/Courtside",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
