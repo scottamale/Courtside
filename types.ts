@@ -10,7 +10,7 @@ export interface StatEvent {
   timestamp: number;
   type: string;
   value?: number;
-  team: 'home'; // Only tracking one team now
+  team: 'home' | 'away';
 }
 
 export interface GameState {

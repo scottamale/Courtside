@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { GameState, StatEvent } from '../types.ts';
+import { GameState, StatEvent } from '../types';
 import { ArrowLeftIcon, BoltIcon } from '@heroicons/react/24/solid';
 
 interface InterfaceProps {

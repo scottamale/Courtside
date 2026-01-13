@@ -25,6 +25,16 @@
             background: #374151;
             border-radius: 10px;
         }
+        /* Loading state styling */
+        #root:empty::before {
+            content: 'Loading Courtside...';
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            color: #4b5563;
+            font-style: italic;
+        }
     </style>
 <script type="importmap">
 {

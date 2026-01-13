@@ -1,9 +1,10 @@
+
 import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
-import { GameMetadata, GameState, StatEvent } from './types.ts';
-import SetupForm from './components/SetupForm.tsx';
-import BasketballInterface from './components/BasketballInterface.tsx';
-import VolleyballInterface from './components/VolleyballInterface.tsx';
-import SummaryModal from './components/SummaryModal.tsx';
+import { GameMetadata, GameState, StatEvent } from './types';
+import SetupForm from './components/SetupForm';
+import BasketballInterface from './components/BasketballInterface';
+import VolleyballInterface from './components/VolleyballInterface';
+import SummaryModal from './components/SummaryModal';
 import { ArrowPathIcon } from '@heroicons/react/24/solid';
 
 const App: React.FC = () => {
@@ -23,9 +24,12 @@ const App: React.FC = () => {
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
-        setGame(parsed);
-        setView('game');
-        if (savedTimer) setSeconds(parseInt(savedTimer, 10));
+        // Basic validation to ensure data integrity
+        if (parsed && parsed.metadata && Array.isArray(parsed.events)) {
+          setGame(parsed);
+          setView('game');
+          if (savedTimer) setSeconds(parseInt(savedTimer, 10));
+        }
       } catch (e) {
         console.error("Failed to parse saved game", e);
       }
@@ -98,7 +102,7 @@ const App: React.FC = () => {
     });
   }, []);
 
-  const handleManualStatUpdate = useCallback((_team: 'home' | 'away', type: string, delta: number, value?: number) => {
+  const handleManualStatUpdate = useCallback((team: 'home' | 'away', type: string, delta: number, value?: number) => {
     if ('vibrate' in navigator) navigator.vibrate(30);
     setGame(prev => {
       if (!prev) return null;
@@ -107,7 +111,7 @@ const App: React.FC = () => {
           id: Math.random().toString(36).substr(2, 9),
           timestamp: Date.now(),
           type,
-          team: 'home',
+          team: team, // Use the passed team parameter
           value
         };
         return { ...prev, events: [...prev.events, newEvent] };

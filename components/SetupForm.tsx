@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { GameMetadata, Sport } from '../types.ts';
+import { GameMetadata, Sport } from '../types';
 
 interface SetupFormProps {
   onStart: (metadata: GameMetadata) => void;

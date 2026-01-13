@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { GameState } from '../types.ts';
+import { GameState } from '../types';
 import { XMarkIcon, PlusIcon, MinusIcon, ArrowPathIcon, ArrowUturnLeftIcon } from '@heroicons/react/24/solid';
 
 interface SummaryModalProps {
