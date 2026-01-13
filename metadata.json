@@ -1,0 +1,5 @@
+{
+  "name": "Courtside",
+  "description": "A high-performance, dark-themed mobile scorekeeper for Basketball and Volleyball with real-time stats, undo functionality, and haptic feedback.",
+  "requestFramePermissions": []
+}
