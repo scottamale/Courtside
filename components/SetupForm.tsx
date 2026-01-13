@@ -19,7 +19,7 @@ const SetupForm: React.FC<SetupFormProps> = ({ onStart, onResume }) => {
     <div className="min-h-screen bg-black flex items-center justify-center p-6">
       <div className="w-full max-w-md bg-gray-900 rounded-2xl p-8 shadow-2xl border border-gray-800">
         <div className="text-center mb-10">
-          <h1 className="text-4xl font-black text-[#2563EB] mb-2 italic tracking-tighter">TALLY</h1>
+          <h1 className="text-4xl font-black text-[#2563EB] mb-2 italic tracking-tighter">COURTSIDE</h1>
           <p className="text-gray-400 text-sm font-medium uppercase tracking-widest">Select a sport to begin</p>
         </div>
 
